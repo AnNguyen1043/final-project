@@ -1,8 +1,11 @@
-import './App.css';
+import './styles/App.css';
 import { Suspense } from 'react';
 import { ALL_ROUTES } from './router/router';
 import AppAuthenticator from './templates/app-authenticator';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from '@mui/material';
+import DefaultTheme from './styles/themes/default';
+import DEFAULT_THEME from './styles/themes/default';
 
 function App() {
   return (
@@ -26,6 +29,12 @@ function App() {
       })}
     </Suspense>
   );
+}
+
+const AppProviders = () => {
+  return <ThemeProvider theme={DEFAULT_THEME}>
+    <App />
+  </ThemeProvider>
 }
 
 export default App;
